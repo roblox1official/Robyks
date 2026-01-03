@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Форма відправки</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-box {
+    background: #1e1e1e;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.form-box h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.form-box input,
+.form-box textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #4caf50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-box button:hover {
+    background: #43a047;
+}
+
+.success-message {
+    text-align: center;
+    color: #4caf50;
+    margin-top: 10px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="form-box">
+    <h2>Зв'язок</h2>
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Ім'я" required>
+        <textarea name="message" placeholder="Повідомлення" required></textarea>
+        <input type="number" name="tokens" placeholder="Введіть кількість токенів" required>
+        <button type="submit">Відправити</button>
+    </form>
+    <div class="success-message" id="success-message" style="display:none;">Повідомлення надіслано!</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+emailjs.init("MHamBnnQ9UlV5Yyri"); // твій Public Key
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+        "service_o7zj1hy",   // твій Service ID
+        "template_u8gxpq8",  // твій Template ID
+        this
+    )
+    .then(function(){
+        document.getElementById("success-message").style.display = "block";
+        document.getElementById("contact-form").reset();
+    }, function(err){
+        alert("Помилка: " + err.text);
+    });
+});
+</script>
+
+</body>
+</html>
