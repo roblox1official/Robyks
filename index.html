@@ -5,14 +5,20 @@
 <title>Форма відправки</title>
 
 <style>
-/* Фон у стилі Roblox */
+/* ФОН: чорний Roblox-аватар */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background:
-        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-        url("https://images.alphacoders.com/132/1324271.jpeg") no-repeat center center fixed;
+        linear-gradient(
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.75)
+        ),
+        url("https://i.pinimg.com/originals/7c/61/5f/7c615f92c9c5c06f8f7d8e4c2f5bcb33.png");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,11 +27,12 @@ body {
 
 /* Карточка */
 .form-box {
-    background: #1f2023;
+    background: rgba(20, 20, 20, 0.95);
     padding: 26px;
     border-radius: 14px;
     width: 340px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.85);
+    box-shadow: 0 0 40px rgba(0,0,0,0.9);
+    backdrop-filter: blur(2px);
 }
 
 /* Заголовок */
@@ -75,7 +82,7 @@ body {
     transform: scale(1.02);
 }
 
-/* Повідомлення про успіх */
+/* Повідомлення */
 .success-message {
     text-align: center;
     color: #4caf50;
@@ -123,5 +130,6 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 
 </body>
 </html>
+
 
 
